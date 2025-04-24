@@ -1,1 +1,4 @@
-web: gunicorn taskproject.wsgi:application --bind 0.0.0.0:8080
+
+web: gunicorn taskproject.wsgi --log-file - 
+#or works good with external database
+web: python manage.py migrate && gunicorn taskproject.wsgi
