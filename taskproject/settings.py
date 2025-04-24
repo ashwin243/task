@@ -17,7 +17,11 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-3af8.up.railway.app',
+    "https://web-production-3af8.up.railway.app",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://192.168.0.100:8000",
+    "http://10.0.2.2:8000",
 ]
 
 # Quick-start development settings - unsuitable for production
@@ -59,7 +63,17 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",                   # Flutter web on local dev (common port)
+    "http://127.0.0.1:3000",                   # Flutter web
+    "http://localhost:8000",                   # Django local backend
+    "http://127.0.0.1:8000",                   # Django local backend
+    "http://192.168.0.100:8000",               # Replace with your actual LAN IP (PC IP)
+    "http://10.0.2.2:8000",                    # Android emulator accessing localhost
+    "http://10.0.3.2:8000",                    # Genymotion or other emulators
+    "https://web-production-3af8.up.railway.app",  # Your deployed backend
+]
+
 ROOT_URLCONF = 'taskproject.urls'
 
 TEMPLATES = [
