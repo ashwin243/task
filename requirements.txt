@@ -1,6 +1,6 @@
 Django==4.2.11
-djangorestframework==3.16.0
+djangorestframework==3.14.0  # Adjusted to match compatibility
 django-cors-headers==4.7.0
-gunicorn
-whitenoise
-python-decouple
+gunicorn==23.0.0
+whitenoise==6.0.0
+python-decouple==3.5
