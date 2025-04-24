@@ -5,6 +5,6 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('tasks.urls')),  # Ensure 'tasks.urls' is correctly included
-    path('', RedirectView.as_view(url='/admin/', permanent=False)),  # Redirect root to admin page
+    path('api/', include('tasks.urls')),  # This should include the tasks app URLs
+    path('', RedirectView.as_view(url='/admin/', permanent=False)),  # Optional: Redirect root to admin
 ]
