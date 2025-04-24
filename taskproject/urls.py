@@ -23,9 +23,11 @@ from tasks.views import TaskViewSet
 
 router = DefaultRouter()
 router.register(r'tasks', TaskViewSet)
+from django.contrib import admin
+from django.urls import path, include
 
+# ✅ This is the correct way to include your app's urls
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(tasks.urls)),
-    path('', lambda request: HttpResponse("✅ API is working! Visit /admin or /api/tasks")),
+    path('api/', include('tasks.urls')),  # quotes around tasks.urls
 ]
