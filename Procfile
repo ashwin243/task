@@ -1,1 +1,1 @@
-web: gunicorn taskproject.wsgi
+web: gunicorn taskproject.wsgi:application --bind 0.0.0.0:8080
