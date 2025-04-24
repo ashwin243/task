@@ -1,7 +1,6 @@
-# tasks/urls.py
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('tasks/', views.get_or_create_tasks),  # Make sure this matches the URL being requested
+    path('tasks/', views.get_or_create_tasks),  # This should be the endpoint to create or get tasks
 ]
