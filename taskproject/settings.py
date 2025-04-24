@@ -64,14 +64,10 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",                   # Flutter web on local dev (common port)
-    "http://127.0.0.1:3000",                   # Flutter web
-    "http://localhost:8000",                   # Django local backend
-    "http://127.0.0.1:8000",                   # Django local backend
-    "http://192.168.0.100:8000",               # Replace with your actual LAN IP (PC IP)
-    "http://10.0.2.2:8000",                    # Android emulator accessing localhost
-    "http://10.0.3.2:8000",                    # Genymotion or other emulators
-    "https://web-production-3af8.up.railway.app",  # Your deployed backend
+    "http://localhost:3000",  # for local testing
+    "http://127.0.0.1:3000",  # also allow this
+    "http://localhost",       # sometimes needed
+    "https://web-production-3af8.up.railway.app",  # your deployed backend
 ]
 
 ROOT_URLCONF = 'taskproject.urls'
