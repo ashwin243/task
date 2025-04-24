@@ -21,13 +21,12 @@ from rest_framework.routers import DefaultRouter
 import tasks
 from tasks.views import TaskViewSet
 
-router = DefaultRouter()
-router.register(r'tasks', TaskViewSet)
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView  # Add this import for redirect
 
-# ✅ This is the correct way to include your app's urls
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('tasks.urls')),  # quotes around tasks.urls
+    path('api/', include('tasks.urls')),
+    path('', RedirectView.as_view(url='/api/', permanent=True)),  # Redirect root to /api/
 ]
